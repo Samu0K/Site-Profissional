@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="dark.js" href="dark.js">
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; 
+        }
+
+        /* Cores padrão (Light) */
+    body {
+    background-color: white;
+    color: black;
+    transition: background 0.5s;
+    }
+
+    /* Cores quando o modo Dark estiver ativo */
+    body.dark-mode {
+    background-color: #121212;
+    color: white;
+    }
+
+    /* --- CORES DO MODO CLARO (PADRÃO) --- */
+
+    .banner {
+        background-image: url('imagem-clara.jpg'); /* Sua imagem de dia */
+    }
+
+    /* --- CORES DO MODO DARK (QUANDO CLICADO) --- */
+    body.dark-mode {
+        background-color: #121212;
+        color: white;
+    }
+
+    body.dark-mode .banner {
+        background-image: url('imagem-escura.jpg'); /* Sua imagem de noite */
+    }
+
+    /* Se você tiver uma lista ou botões, mude eles também */
+    body.dark-mode li {
+        border-color: white;
+    }
+        .banner {
+            background-image: url("Imagens/Papel\ de\ parede\ abstrato\ de\ gradiente\ azul\ de\ estilo\ mínimo\ com\ vetor\ de\ efeito\ borrado\ _\ Vetor\ Grátis.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #foto_perfil_1 {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            margin-top: 10%;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /* Container dos ícones */
+    .icon {
+        position: absolute;
+        top: 5px;
+        font-size: 18px;
+        transition: 0.4s;
+    }
+
+    /* Posição do Sol (Modo Light) */
+    .sun {
+        left: 3.9px;
+        opacity: 1;
+    }
+
+    /* Posição da Lua (Modo Dark) */
+    .moon {
+        right: 6px;
+        opacity: 0; /* Começa invisível */
+    }
+
+    /* Quando o Switch é ativado (DARK MODE) */
+    input:checked + .slider .sun {
+        opacity: 0; /* Esconde o sol */
+        transform: rotate(360deg);
+    }
+
+    input:checked + .slider .moon {
+        opacity: 1; /* Mostra a lua */
+        transform: rotate(360deg);
+    }
+
+    /* Ajuste do fundo do slider para o tema */
+    input:checked + .slider {
+        background-color: #2c3e50; /* Um azul escuro para a noite */
+    }
+
+        /* A caixa que envolve o switch */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 34px;
+        }
+
+        /* Esconde o checkbox original */
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* O fundo do switch (o trilho) */
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+        }
+
+        /* O círculo branco que se move */
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+        }
+
+        /* Cor de fundo quando estiver "Ligado" (Checked) */
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        /* Move o círculo para a direita quando clicado */
+        input:checked + .slider:before {
+        transform: translateX(46px);
+        }
+
+        #Resumo_Profissional {
+            max-width: 1000px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* AJUSTE NA LISTA: Para ficar vertical */
+        .banner ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Itens do menu um embaixo do outro */
+            gap: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px; /* Espaço antes dos ícones */
+        }
+
+
+        .banner li {
+            border: 2px solid white;
+            border-radius: 25px;
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .banner li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .banner li a {
+            padding: 0; /* Removemos o preenchimento exagerado para o clique ser na borda */
+            font-size: 28px;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* --- O SEGREDO ESTÁ AQUI --- */
+        .container-icones {
+            display: flex;       /* Ativa o flex nos ícones */
+            flex-direction: row;  /* Coloca um do lado do outro */
+            gap: 20px;           /* Espaço entre os dois */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img id="foto_perfil_1" src="./Imagens/foto de perfil 1.jpg" alt="Foto de perfil">
+        
+        <div class="theme-container">
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+    </label>
+</div>
+    </label>
+       
+    <h1 id="Apresentação" style="max-width: 600px; padding: 0 20px;">
+            Estudante de Análise e Desenvolvimento de Sistemas...
+        </h1>
+
+     <p id="Resumo_Profissional">
+            Estudante de Análise e Desenvolvimento de Sistemas com conhecimentos sólidos em 
+        desenvolvimento Android e web fullstack, incluindo tecnologias modernas como Jetpack 
+        Compose, MVVM, Kotlin Coroutines, HTML, CSS, JavaScript, React e Node.js. Experiência em 
+        análise de dados via Excel para relatórios e controle, preparando-me para contribuir em 
+        desenvolvimento de software, testes/QA, gestão de projetos e IA. Possuo habilidades 
+        interpessoais como liderança e trabalho em equipe, adquiridas em vendas e logística, com 
+        disponibilidade para trabalho remoto, híbrido e presencial. 
+        </p>
+        
+        <ul id="lista_de_coisas"> 
+            <li id="lista_1"><a href="Documentos/Samuel Oliveira_dev.pdf" target="_blank" >Currículo</a></li>
+            <li id="lista_2"><a href="sobre.html" target="_blank">Sobre</a></li>
+            <li id="lista_3"><a href="contato.html" target="_blank">Diplomas</a></li>
+        </ul>
+
+        <div class="container-icones">
+            <a id="icon_instagram" href="https://www.instagram.com/samuel_sateles/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a id="icon_whatsapp" href="https://wa.me/11931494676" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon">
+            </a>
+            <a id="icon_github" href="https://github.com/Samu0K" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="social-icon">
+            </a>
+            <a id="icon_linkedin" href="https://www.linkedin.com/in/samuel-sateles-9b1a4b1b3/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a id="icon_email" href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDbFctTnhlJGXWHkKsbPMKgmMVlgdrpnsgWFLRLNzWLbTrfQHPnZrHWRLCRbSrKvXxsVXGd" target="_blank">
+                <img src="./Imagens/google-gmail-envelope-vector-symbol-logo-icon-701751694791058rlo6laiga4.png" alt="Email" class="social-icon">
+            </a>
+            </div>
+   </div>
+   <script>
+    const checkbox = document.getElementById('theme-toggle');
+
+    checkbox.addEventListener('change', () => {
+        // Toda vez que clicar, ele coloca ou tira a classe 'dark-mode' do body
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+
+</body>
+</html>
