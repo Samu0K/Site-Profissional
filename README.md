@@ -24,4 +24,10 @@ Além do desenvolvimento web, possuo conhecimentos em **Desenvolvimento Android*
 2. Abra o arquivo `index.html` no seu navegador.
 
 ---
+
 💡 *Estudante de ADS em busca de oportunidades como Programador Júnior / Estagiário.*
+
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/e03f57e1-ca10-4c64-ab76-82668961dd5c" />
+
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/4d768a7d-277a-4af3-a492-bdcee1064eee" />
+
