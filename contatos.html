@@ -8,10 +8,13 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #01cedd8c;
+        background-image: url('./Imagens/Papel de parede abstrato de gradiente azul de estilo mínimo com vetor de efeito borrado _ Vetor Grátis.jpeg');
+        background-size: cover;
+        background-position: center;
         margin: 0;
         padding: 20px;
-
+        background-repeat: no-repeat; /* Esta é a função que você buscou */
+        height: 100vh; /* Garante que o fundo cubra toda a altura da tela */
     }
 
     .lista_de_contatos {
@@ -68,10 +71,129 @@
         text-decoration: underline;
         font-weight: bold;
     }
- 
+  /* Suas outras regras... */
+
+  body.dark-mode {
+    background-color: #121212 !important;
+    color: white !important;
+  }
+  
+  /* Se quiser que o banner mude também nas outras páginas */
+  body.dark-mode .banner, 
+  body.dark-mode .lista_de_diplomas {
+    background-color: #1a1a1a !important;
+    background-image: none; /* Remove a imagem clara no dark */
+  }
+
+   .icon {
+        position: absolute;
+        top: 5px;
+        font-size: 18px;
+        transition: 0.4s;
+    }
+
+    /* Posição do Sol (Modo Light) */
+    .sun {
+        left: 3.9px;
+        opacity: 1;
+    }
+
+    /* Posição da Lua (Modo Dark) */
+    .moon {
+        right: 6px;
+        opacity: 0; /* Começa invisível */
+    }
+
+    /* Quando o Switch é ativado (DARK MODE) */
+    input:checked + .slider .sun {
+        opacity: 0; /* Esconde o sol */
+        transform: rotate(360deg);
+    }
+
+    input:checked + .slider .moon {
+        opacity: 1; /* Mostra a lua */
+        transform: rotate(360deg);
+    }
+
+    /* Ajuste do fundo do slider para o tema */
+    input:checked + .slider {
+        background-color: #2c3e50; /* Um azul escuro para a noite */
+    }
+
+        /* A caixa que envolve o switch */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 34px;
+        }
+
+        /* Esconde o checkbox original */
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* O fundo do switch (o trilho) */
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+        }
+
+        /* O círculo branco que se move */
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+        }
+
+        /* Cor de fundo quando estiver "Ligado" (Checked) */
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        /* Move o círculo para a direita quando clicado */
+        input:checked + .slider:before {
+        transform: translateX(46px);
+        }
+
+ body.dark-mode {
+    background-color: #121212 !important;
+    background-image: none !important; /* Remove o azul no dark */
+    color: white !important;
+}
+
+body.dark-mode .lista_de_contatos {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333;
+}
+
 </style>
 
 <body>
+    <div class="theme-container">
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+    </label>
+</div>
+</label>
     <div class="lista_de_contatos">
         <h1>Contatos</h1>
         <p id="entre">Entre em contato comigo através das seguintes redes sociais:</p>
@@ -86,6 +208,9 @@
             <li id="contato_4"><a href="https://wa.me/5511931494676" target="_blank">WhatsApp: https://wa.me/5511931494676 (11 93149-4676)</a>
            
             <li id="contato_5"><a href="https://www.instagram.com/samuel_sateles/" target="_blank">Instagram: https://www.instagram.com/samuel_sateles/</a>
-           
-</body>
+        </ul>
+        
+        <script src="logica.js"></script>
+
+            </body>
 </html>
