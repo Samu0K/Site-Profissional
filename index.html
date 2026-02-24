@@ -42,8 +42,8 @@
     body.dark-mode li {
         border-color: white;
     }
-        .banner {
-            background-image: url("Imagens/Papel\ de\ parede\ abstrato\ de\ gradiente\ azul\ de\ estilo\ mínimo\ com\ vetor\ de\ efeito\ borrado\ _\ Vetor\ Grátis.jpeg");
+    .banner {
+            background-image: url('./Imagens/Papel de parede abstrato de gradiente azul de estilo mínimo com vetor de efeito borrado _ Vetor Grátis.jpeg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -63,9 +63,9 @@
             border-radius: 50%;
             border: 4px solid white;
             margin-bottom: 20px;
-            margin-top: 10%;
-            justify-content: center;
-            align-items: center;
+            justify-content: center top;
+            align-items: center top;
+            display: block;
 
         }
 
@@ -226,6 +226,14 @@
             transform: scale(1.2);
             border: 2px solid white;
         }
+
+    body.banner {
+    background-image: url("./Imagens/Papel\ de\ parede\ abstrato\ de\ gradiente\ azul\ de\ estilo\ mínimo\ com\ vetor\ de\ efeito\ borrado\ _\ Vetor\ Grátis.jpeg");
+}
+
+    body.dark-mode.banner {
+    background-color: #121212; /* Sua imagem de fundo para o dark */
+}
     </style>
 </head>
 <body>
@@ -258,9 +266,9 @@
         </p>
         
         <ul id="lista_de_coisas"> 
-            <li id="lista_1"><a href="Documentos/Samuel Oliveira_dev.pdf" target="_blank" >Currículo</a></li>
-            <li id="lista_2"><a href="sobre.html" target="_blank">Sobre</a></li>
-            <li id="lista_3"><a href="contato.html" target="_blank">Diplomas</a></li>
+            <li id="lista_1"><a href="Documentos/Samuel_Sateles_Oliveira.pdf" target="_blank" >Currículo</a></li>
+            <li id="lista_3"><a href="diplomas.html" target="_blank">Diplomas</a></li>
+            <li id="lista_4"><a href="contatos.html" target="_blank">Contatos</a></li>
         </ul>
 
         <div class="container-icones">
@@ -271,22 +279,33 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon">
             </a>
             <a id="icon_github" href="https://github.com/Samu0K" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="social-icon">
+                <img src="./Imagens/github-icon-2.svg" alt="GitHub" class="social-icon">
             </a>
             <a id="icon_linkedin" href="https://www.linkedin.com/in/samuel-sateles-9b1a4b1b3/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="social-icon">
             </a>
-            <a id="icon_email" href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDbFctTnhlJGXWHkKsbPMKgmMVlgdrpnsgWFLRLNzWLbTrfQHPnZrHWRLCRbSrKvXxsVXGd" target="_blank">
+            <a id="icon_email" href="mailto:samuelsateles8@gmail.com" target="_blank">
                 <img src="./Imagens/google-gmail-envelope-vector-symbol-logo-icon-701751694791058rlo6laiga4.png" alt="Email" class="social-icon">
             </a>
             </div>
    </div>
    <script>
-    const checkbox = document.getElementById('theme-toggle');
+  const checkbox = document.getElementById('theme-toggle');
+const img = document.getElementById('foto_perfil_1'); // Sem o # aqui dentro
+checkbox.addEventListener('change', () => {
+    // 1. Alterna a classe 'dark-mode' no body
+    document.body.classList.toggle('dark-mode');
 
-    checkbox.addEventListener('change', () => {
-        // Toda vez que clicar, ele coloca ou tira a classe 'dark-mode' do body
-        document.body.classList.toggle('dark-mode');
+    // 2. Verifica se agora o body tem a classe dark-mode
+    if (document.body.classList.contains('dark-mode')) {
+        // Se estiver no Dark Mode
+        img.setAttribute("src", "./imagens/Gemini_Generated_Image_1fta7t1fta7t1fta.png");
+        img.setAttribute("alt", "foto_de_perfil_escuro");
+    } else {
+        // Se estiver no Light Mode (Padrão)
+        img.setAttribute("src", "./Imagens/foto de perfil 1.jpg");
+        img.setAttribute("alt", "foto_de_perfil_claro");
+    }
     });
 </script>
 
